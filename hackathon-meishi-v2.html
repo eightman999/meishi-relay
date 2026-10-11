@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>名刺1枚から関係づくりチーム｜チーム6</title>
+<style>
+  :root{--bg:#0b0d1c;--panel:rgba(255,255,255,.05);--line:rgba(255,255,255,.1);--txt:#eef0ff;--mut:#a5abd3;--c1:#5ee7df;--c2:#b490ff;--c3:#ff7eb6;--c4:#ffd36e}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Hiragino Sans","Noto Sans JP",system-ui,sans-serif;color:var(--txt);background:var(--bg);line-height:1.7}
+  .bg{position:fixed;inset:0;z-index:-1;background:
+    radial-gradient(600px 400px at 10% 0%,rgba(94,231,223,.18),transparent 60%),
+    radial-gradient(700px 500px at 90% 10%,rgba(180,144,255,.20),transparent 60%),
+    radial-gradient(600px 500px at 50% 100%,rgba(255,126,182,.14),transparent 60%),var(--bg)}
+  .wrap{max-width:1040px;margin:0 auto;padding:56px 22px 80px}
+  .eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.08em;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--panel)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--c1);box-shadow:0 0 12px var(--c1)}
+  h1{font-size:clamp(30px,5vw,48px);line-height:1.2;margin:18px 0 12px;letter-spacing:-.01em}
+  .grad{background:linear-gradient(90deg,var(--c1),var(--c2),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:18px;color:var(--mut);max-width:760px}
+  .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+  .meishi{aspect-ratio:91/55;border-radius:18px;padding:22px;background:linear-gradient(135deg,#fff,#eef1ff);color:#1d2140;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.3);transform:rotate(-4deg);position:relative;overflow:hidden}
+  .meishi:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.7) 50%,transparent 60%);animation:shine 4s infinite}
+  @keyframes shine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+  .meishi .co{font-size:11px;color:#6b7099;letter-spacing:.1em}
+  .meishi .nm{font-size:24px;font-weight:800;margin-top:14px}
+  .meishi .rl{font-size:12px;color:#6b7099}
+  .meishi .ct{position:absolute;bottom:18px;left:22px;font-size:11px;color:#6b7099}
+  .scan{position:absolute;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--c1),transparent);box-shadow:0 0 16px var(--c1);animation:scan 2.6s ease-in-out infinite}
+  @keyframes scan{0%{top:8%}50%{top:90%}100%{top:8%}}
+  section{margin-top:56px}
+  .kicker{font-size:12px;letter-spacing:.14em;color:var(--c1);text-transform:uppercase}
+  h2{font-size:26px;margin:6px 0 18px}
+  .glass{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:22px;backdrop-filter:blur(10px)}
+  .voices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .voice{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+  .who{font-size:12px;color:var(--mut);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .av{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:bold;color:#0b0d1c}
+  .ans{margin-top:10px;font-size:13px;color:var(--c4)}
+  .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;position:relative}
+  .step .n{font-size:12px;color:var(--mut)}
+  .step .ic{font-size:30px;margin:6px 0}
+  .step h3{margin:0 0 6px;font-size:17px}
+  .step p{margin:0;font-size:13px;color:var(--mut)}
+  .step .rule{margin-top:10px;font-size:12px;border-top:1px dashed var(--line);padding-top:8px;color:var(--txt)}
+  .step:nth-child(1){box-shadow:inset 0 3px 0 var(--c1)}
+  .step:nth-child(2){box-shadow:inset 0 3px 0 var(--c2)}
+  .step:nth-child(3){box-shadow:inset 0 3px 0 var(--c3)}
+  .step:nth-child(4){box-shadow:inset 0 3px 0 var(--c4)}
+  .human{margin-top:14px;text-align:center;font-size:14px;color:var(--mut)}
+  .human b{color:var(--c3)}
+  .notion{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:start}
+  .page{background:#fbfbfa;color:#2f3437;border-radius:16px;padding:26px 28px;box-shadow:0 20px 50px rgba(0,0,0,.4);font-size:14px}
+  .page .ico{font-size:40px}
+  .page h4{font-size:24px;margin:6px 0 4px}
+  .page .props{display:grid;grid-template-columns:90px 1fr;gap:4px 10px;font-size:12px;color:#787774;margin:10px 0 16px}
+  .page .props span:nth-child(even){color:#2f3437}
+  .page h5{font-size:15px;margin:16px 0 6px}
+  .page ul{margin:0;padding-left:18px}
+  .page .src{font-size:11px;color:#9b9a97}
+  .page .call{background:#f1f1ef;border-radius:8px;padding:10px 12px;font-size:13px}
+  .why li{margin-bottom:10px}
+  .crit{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .crit .glass h3{margin:0 0 8px;font-size:18px}
+  .crit .glass p{margin:0;font-size:14px;color:var(--mut)}
+  .crit .big{font-size:34px}
+  .timeline{position:relative;padding-left:26px}
+  .timeline:before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--c1),var(--c2),var(--c3),var(--c4))}
+  .tl{position:relative;margin-bottom:16px}
+  .tl:before{content:"";position:absolute;left:-23px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--txt);box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+  .tl .t{font-weight:bold;color:var(--c4);font-size:14px}
+  .tl .d{font-size:14px;color:var(--mut)}
+  .demo{counter-reset:d;display:grid;gap:10px}
+  .demo div{counter-increment:d;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 16px 12px 52px;position:relative;font-size:15px}
+  .demo div:before{content:counter(d);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#0b0d1c;font-weight:bold;display:grid;place-items:center;font-size:13px}
+  .demo .wow{border-color:var(--c3);background:rgba(255,126,182,.08)}
+  .care{border:1px solid rgba(255,211,110,.4);background:rgba(255,211,110,.07);border-radius:18px;padding:16px 20px;font-size:14px}
+  footer{margin-top:60px;font-size:12px;color:var(--mut);text-align:center}
+  @media(max-width:820px){.hero,.notion{grid-template-columns:1fr}.pipe,.crit{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.pipe,.crit{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Grok Bot Tokyo Hackathon ・ チーム6</span>
+      <h1>名刺1枚から、<br><span class="grad">関係が動き出す。</span></h1>
+      <p class="lead">名刺の写真を送るだけで、Botチームが相手を下調べし、Notionに記録し、お礼の下書きまで用意します。人がやるのは、会話と最後の「送る」だけ。</p>
+    </div>
+    <div class="meishi">
+      <div class="scan"></div>
+      <div class="co">EXAMPLE INC.</div>
+      <div class="nm">審査員 さま</div>
+      <div class="rl">今日、この場でいただく名刺</div>
+      <div class="ct">📷 撮って送るだけ</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="kicker">Team voices</div>
+    <h2>チームで出た話と、その答え</h2>
+    <div class="voices">
+      <div class="voice"><div class="who"><span class="av" style="background:var(--c1)">m</span>man eight</div>名刺の方がデモがしやすそう。調べるBotとNotionにまとめるBotがいるといいかも。<div class="ans">→ 4体構成に採用</div></div>
+      <div class="voice"><div class="who"><span class="av" style="background:var(--c2)">ほ</span>ほげ</div>公開情報から調べられるので、ハッカソン用にデータを作る手間を省ける。<div class="ans">→ 公開情報だけで動く設計に</div></div>
+      <div class="voice"><div class="who"><span class="av" style="background:var(--c2)">ほ</span>ほげ</div>審査員の名刺でライブデモするとか。<div class="ans">→ デモの山場に採用</div></div>
+      <div class="voice"><div class="who"><span class="av" style="background:var(--c1)">m</span>man eight</div>XやLinkedInでもつながるとか…？<div class="ans">→ アカウントを見つけてリンク。フォローは本人が押す</div></div>
+      <div class="voice"><div class="who"><span class="av" style="background:var(--c1)">m</span>man eight</div>Notionの見せ方、書き方は結構大事かも。<div class="ans">→ 1人1ページの固定テンプレートに</div></div>
+      <div class="voice"><div class="who"><span class="av" style="background:var(--c2)">ほ</span>ほげ</div>調べるBotの調べ方によって、質を左右しそう。<div class="ans">→ 調べる順番と「出典必須」のルールを決める</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">Bot team</div>
+    <h2>4体のBotで、名刺を「関係」に変える</h2>
+    <div class="pipe">
+      <div class="step"><div class="n">01</div><div class="ic">📸</div><h3>読み取りBot</h3><p>名刺の写真から、名前、会社、役職、連絡先を読み取る。</p><div class="rule">読めない文字は推測せず「要確認」にする</div></div>
+      <div class="step"><div class="n">02</div><div class="ic">🔍</div><h3>調べるBot</h3><p>公開情報から、最近の動きと話のネタ、XやLinkedInのアカウントを見つける。</p><div class="rule">会社サイト → X → ニュース → LinkedInの順に見る。出典URL必須。見つからないことは書かない</div></div>
+      <div class="step"><div class="n">03</div><div class="ic">🗂️</div><h3>まとめるBot</h3><p>Notionに相手ごとのページを作り、決まったテンプレートで記録する。</p><div class="rule">項目の順番は固定。ひと目で読める長さに</div></div>
+      <div class="step"><div class="n">04</div><div class="ic">✉️</div><h3>フォローBot</h3><p>相手の話題に合わせたお礼メッセージの下書きを作る。</p><div class="rule">送信、フォロー、つながり申請は本人が押す</div></div>
+    </div>
+    <div class="human">👤 人がやるのは <b>会話すること</b> と <b>最後に送ること</b> だけ</div>
+  </section>
+
+  <section>
+    <div class="kicker">Notion template</div>
+    <h2>Notionは「1人1ページ」、上から読めば分かる形に</h2>
+    <div class="notion">
+      <div class="page">
+        <div class="ico">🪪</div>
+        <h4>（相手の名前）</h4>
+        <div class="props"><span>会社・役職</span><span>名刺から</span><span>会った日</span><span>2026-10-11 Grok Bot Tokyo Hackathon</span><span>X</span><span>@（見つかれば）</span><span>LinkedIn</span><span>（見つかれば）</span></div>
+        <div class="call">💡 <b>ひとことで言うと</b>：（どんな人かを1行で）</div>
+        <h5>📰 最近の話題 3つ</h5>
+        <ul><li>（話題1）<div class="src">出典：URL</div></li><li>（話題2）<div class="src">出典：URL</div></li><li>（話題3）<div class="src">出典：URL</div></li></ul>
+        <h5>💬 今日話したこと</h5><ul><li>（ひとことメモから）</li></ul>
+        <h5>🔜 次に会う理由</h5><ul><li>（次の一手）</li></ul>
+        <h5>✉️ お礼の下書き</h5><div class="call">（本人が確認して送る）</div>
+      </div>
+      <div class="glass why">
+        <h3 style="margin-top:0">この形にする理由</h3>
+        <ul>
+          <li><b>上から読めば会話に使える</b>：次に会う直前に開いて、30秒で思い出せる順番です。</li>
+          <li><b>出典付きで信用できる</b>：話題には必ずURLを付けるので、デモでも審査員がその場で確かめられます。</li>
+          <li><b>見つからないものは空欄</b>：調べるBotが推測で埋めないので、間違った情報で失礼をしません。</li>
+          <li><b>テンプレートを先に作る</b>：まとめるBotは毎回同じ形で書くだけなので、見た目がブレません。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">Judging</div>
+    <h2>審査基準への効き方</h2>
+    <div class="crit">
+      <div class="glass"><div class="big">💡</div><h3>発想</h3><p>読む、調べる、記録する、書くをBotが分担。人は会話と最後の判断だけに集中できる。</p></div>
+      <div class="glass"><div class="big">📈</div><h3>価値</h3><p>名刺交換のあとの下調べ、記録、お礼が写真1枚で数分に。名刺の束が「放置」から「次の商談」へ。</p></div>
+      <div class="glass"><div class="big">🌍</div><h3>スケール</h3><p>イベント参加者、営業、採用担当、フリーランスまで。公開情報だけで動くので準備ゼロで試せる。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">Live demo</div>
+    <h2>3分デモの流れ</h2>
+    <div class="demo">
+      <div>「名刺、撮ってもいいですか？」と審査員に一声かける</div>
+      <div>審査員の名刺をその場で撮って送る</div>
+      <div>読み取りBotが名前と会社を拾う</div>
+      <div>調べるBotが最近の話題とXやLinkedInを、出典付きで出す</div>
+      <div class="wow">Notionに審査員さんのページができあがるのを、本人の目の前で見せる</div>
+      <div>お礼の下書きを見せて、「ここまで◯分。送るのは人です」で締める</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">Schedule</div>
+    <h2>16:00までの段取り</h2>
+    <div class="glass timeline">
+      <div class="tl"><div class="t">〜13:30　Botを作る（作る人）</div><div class="d">4体を作って役割とルールを書き込み、Notionのテンプレートを用意してつなぐ。</div></div>
+      <div class="tl"><div class="t">13:30〜14:30　本番で回す（全員）</div><div class="d">チームの3人の名刺で試して、調べ方のルールを調整。かかった時間を測り、画面をスクショで残す。</div></div>
+      <div class="tl"><div class="t">14:30〜15:15　デモ準備（見せる人）</div><div class="d">審査員ライブデモの流れを練習。うまくいかなかったとき用に、チームの名刺での録画も用意。</div></div>
+      <div class="tl"><div class="t">15:15〜15:45　提出文を仕上げる（書く人）</div><div class="d">審査基準で採点させながら磨いて、スクショを資料欄に添付。</div></div>
+      <div class="tl"><div class="t">15:45　提出</div><div class="d">余裕をもって送信。</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="care">🤝 <b>マナーの約束</b>：名刺を撮る前に必ず本人の了解をとります。調べるのは公開情報だけ。送信、フォロー、つながり申請は、すべて本人が確認して押します。</div>
+  </section>
+
+  <footer>チーム6 ・ Grok Bot Tokyo Hackathon 2026-10-11 ・ 時間などの数字は当日の実測に差し替え</footer>
+</div>
+</body>
+</html>

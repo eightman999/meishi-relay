@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEISHI RELAY | Grok Bot Tokyo Hackathon</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--fg:#e2e8f0;--mut:#94a3b8;--c1:#38bdf8;--c2:#a78bfa;--c3:#34d399;--c4:#fbbf24}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:"Noto Sans CJK JP","Hiragino Sans","Yu Gothic",sans-serif}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 8vw}
+.slide.on{display:flex}
+h1{font-size:7vw;margin:0;letter-spacing:.04em}h2{font-size:3.6vw;margin:0 0 4vh}
+.lead{font-size:2.2vw;color:var(--mut);margin-top:2vh;line-height:1.6}
+.big{font-size:2.6vw;line-height:1.8}.big b{color:var(--c1)}
+ul{font-size:2.3vw;line-height:1.9;margin:0;padding-left:1.2em}
+.flow{display:flex;gap:1.4vw;align-items:stretch}
+.card{flex:1;background:var(--card);border-radius:16px;padding:2.4vh 1.6vw;border-top:6px solid var(--c1)}
+.card.b{border-color:var(--c2)}.card.c{border-color:var(--c3)}.card.d{border-color:var(--c4)}
+.card .n{font-size:1.1vw;color:var(--mut)}.card .t{font-size:2vw;font-weight:700;margin:.6vh 0 1.2vh}.card .x{font-size:1.35vw;line-height:1.7;color:#cbd5e1}
+.arr{align-self:center;font-size:2.6vw;color:#64748b}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:2vw}
+.box{background:var(--card);border-radius:16px;padding:3vh 2vw;font-size:1.9vw;line-height:1.7}
+.box .h{font-size:1.4vw;color:var(--mut);margin-bottom:1vh}
+.pills{display:flex;gap:1.2vw;flex-wrap:wrap;margin-top:4vh}.pill{background:var(--card);border-radius:999px;padding:1.2vh 1.6vw;font-size:1.6vw}
+.nav{position:fixed;bottom:2vh;right:2vw;font-size:1.2vw;color:var(--mut)}
+.tag{display:inline-block;background:var(--card);border-radius:8px;padding:.6vh 1vw;font-size:1.4vw;color:var(--mut);margin-bottom:3vh}
+</style></head><body>
+
+<section class="slide on">
+  <div class="tag">Grok Bot Tokyo Hackathon ・ チーム6</div>
+  <h1>🪪 MEISHI RELAY</h1>
+  <div class="lead">名刺1枚から「次に会う理由」まで。<br>4体のGrok Botがリレーでつなぐ、関係づくりのAIチーム</div>
+</section>
+
+<section class="slide">
+  <h2>😩 課題：名刺交換、そのあとが続かない</h2>
+  <ul>
+    <li>イベントで名刺をもらっても、<b>誰がどんな人だったか</b>すぐ忘れる</li>
+    <li>相手のことを調べて、記録して、お礼を書く…が<b>面倒で後回し</b>に</li>
+    <li>結果、せっかくの出会いが<b>次につながらない</b></li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>💡 解決：写真を送るだけで、あとはBotがリレー</h2>
+  <div class="big">ユーザーがやるのは<br><b>① 名刺の写真を送る</b>　<b>② ひとことメモを添える</b>　<b>③ 最後に送信ボタンを押す</b><br>の3つだけ。調べる・記録する・下書きするはBotチームが担当します。</div>
+</section>
+
+<section class="slide">
+  <h2>🤖 チーム構成：4体がバトンをつなぐ</h2>
+  <div class="flow">
+    <div class="card"><div class="n">STEP 1</div><div class="t">読み取りBot</div><div class="x">名刺の写真から名前・肩書き・連絡先・SNSを読み取る。あいまいな所は「要確認」</div></div>
+    <div class="arr">→</div>
+    <div class="card b"><div class="n">STEP 2</div><div class="t">調べるBot</div><div class="x">公開情報だけで下調べ。最近の発信や会話のきっかけを出典URL付きで</div></div>
+    <div class="arr">→</div>
+    <div class="card c"><div class="n">STEP 3</div><div class="t">まとめるBot</div><div class="x">Notionに相手ごと1ページで記録。今日話したことのメモも追加</div></div>
+    <div class="arr">→</div>
+    <div class="card d"><div class="n">STEP 4</div><div class="t">フォローBot</div><div class="x">Xのフォロー候補とお礼メッセージの下書きを用意してユーザーに報告</div></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>📒 できあがるもの：相手ごとのNotionページ</h2>
+  <div class="grid">
+    <div class="box"><div class="h">基本情報</div>名前・会社・役職・連絡先・SNS<br>会った日と場所</div>
+    <div class="box"><div class="h">調べた話題</div>人物の概要、最近の発信、<br>会話のきっかけ（すべて出典URL付き）</div>
+    <div class="box"><div class="h">今日のメモ</div>その場で話したことを<br>そのまま記録</div>
+    <div class="box"><div class="h">お礼の下書き</div>メール用とDM用。<br>送るかどうかは本人が決める</div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>🛡️ こだわり：安心して任せられる設計</h2>
+  <ul>
+    <li><b>確認待ちで止まらない</b>：Bot同士が自動で次に引き継ぐ</li>
+    <li><b>推測で埋めない</b>：分からない項目は「要確認」「記載なし」のまま</li>
+    <li><b>出典のない情報は使わない</b>：同名の別人と混ぜない</li>
+    <li><b>外に出る操作は人間が押す</b>：送信・フォロー・つながり申請はBotはしない</li>
+    <li><b>1体1役</b>：役割を絞ることで、各Botの動きがブレない</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>🎬 実演：今日の1枚で動かしてみた</h2>
+  <div class="big">ハッカソン会場で受け取った名刺1枚（Aさん・マスキング済み）で実行。<br>
+  <b>読み取り → 下調べ → Notion記録</b> までをBotだけで完了し、<br>会話のきっかけ5つが出典URL付きでページに並びました。<br>
+  進み具合はグループチャットで全員が共有しながら動いています。</div>
+</section>
+
+<section class="slide">
+  <h2>🚀 これから</h2>
+  <ul>
+    <li>イベント後にまとめて名刺を送る<b>一括モード</b></li>
+    <li>数週間後に「そろそろ連絡しては？」と促す<b>フォローアップ通知</b></li>
+    <li>次のイベントで<b>再会しそうな人</b>を事前にお知らせ</li>
+  </ul>
+  <div class="pills"><div class="pill">🤝 出会いを、関係に。</div><div class="pill">🪪 MEISHI RELAY</div></div>
+</section>
+
+<div class="nav" id="nav"></div>
+<script>
+const s=[...document.querySelectorAll('.slide')];let i=0;
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach((e,k)=>e.classList.toggle('on',k===i));document.getElementById('nav').textContent=(i+1)+' / '+s.length+'　← → / クリックで移動';}
+document.addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown','Enter'].includes(e.key))show(i+1);if(['ArrowLeft','PageUp','Backspace'].includes(e.key))show(i-1);});
+document.addEventListener('click',e=>show(e.clientX>innerWidth/2?i+1:i-1));
+const h=parseInt(location.hash.slice(1));show(isNaN(h)?0:h-1);
+</script>
+</body></html>
